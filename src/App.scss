@@ -3,14 +3,13 @@ FONT:
 font-family: 'Roboto Condensed', sans-serif;
 */
 
-
 /* COLORS */
 $red: #ff0000;
 $gold: #c6a972;
 $darkGrey: #202020;
-$lightGrey: #E5E5E5;
+$lightGrey: #e5e5e5;
 $white: #ffffff;
-$translucent: rgba(255,255,255,0);
+$translucent: rgba(255, 255, 255, 0);
 
 *,
 *:after,
@@ -34,7 +33,8 @@ h1 {
   font-size: 4.8rem;
 }
 
-h2, h3 {
+h2,
+h3 {
   font-size: 3.4rem;
 }
 
@@ -69,60 +69,61 @@ li {
 
 @keyframes fadeout {
   from {
-      opacity:1;
+    opacity: 1;
   }
   to {
-      opacity:0;
+    opacity: 0;
   }
 }
 
 @keyframes fadein {
   from {
-      opacity:0;
+    opacity: 0;
   }
   to {
-      opacity:1;
+    opacity: 1;
   }
 }
 
-.loader{
+.loader {
   top: 50%;
   left: 50%;
   background-color: black;
 }
 
-.loader span{
+.loader span {
   display: inline-block;
   width: 5px;
   height: 20px;
   background-color: $red;
 }
 
-.loader span:nth-child(1){
+.loader span:nth-child(1) {
   animation: grow 1s ease-in-out infinite;
 }
 
-.loader span:nth-child(2){
+.loader span:nth-child(2) {
   animation: grow 1s ease-in-out 0.15s infinite;
 }
 
-.loader span:nth-child(3){
-  animation: grow 1s ease-in-out 0.30s infinite;
+.loader span:nth-child(3) {
+  animation: grow 1s ease-in-out 0.3s infinite;
 }
 
-.loader span:nth-child(4){
+.loader span:nth-child(4) {
   animation: grow 1s ease-in-out 0.45s infinite;
 }
 
-@keyframes grow{
-  0%, 100%{
+@keyframes grow {
+  0%,
+  100% {
     -webkit-transform: scaleY(1);
     -ms-transform: scaleY(1);
     -o-transform: scaleY(1);
     transform: scaleY(1);
   }
 
-  50%{
+  50% {
     -webkit-transform: scaleY(1.8);
     -ms-transform: scaleY(1.8);
     -o-transform: scaleY(1.8);
@@ -137,7 +138,7 @@ li {
 
 .header {
   height: 10rem;
-  background-image: url("./img/background_header.jpg");
+  background-image: url('./img/background_header.jpg');
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
@@ -164,16 +165,17 @@ li {
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
   font-weight: 700;
-  transition: all .2s;
+  transition: all 0.2s;
   &:hover {
-    transform: translateY(-.3rem);
+    transform: translateY(-0.3rem);
   }
   &:active {
-    transform: translateY(-.1rem);
+    transform: translateY(-0.1rem);
   }
 }
 
 .btn__close-read-panel {
+  font-size: 3rem;
   border: none;
   background: none;
   padding: 1rem;
@@ -277,13 +279,13 @@ li {
   background: black;
   position: relative;
   &:before {
-    content: " ";
+    content: ' ';
     height: 0%;
     width: 100%;
     background: $red;
     position: absolute;
     z-index: 3;
-    transition: .3s ease;
+    transition: 0.3s ease;
     top: 0;
   }
 }
@@ -371,22 +373,23 @@ li {
   font-weight: 700;
   text-transform: uppercase;
   border: none;
-  background-color:$red;
+  background-color: $red;
   color: $white;
-  transition: all .2s;
-  &:focus, &:visited {
+  transition: all 0.2s;
+  &:focus,
+  &:visited {
     background-color: $white;
     color: $red;
   }
   &:hover {
     background-color: $white;
     color: $red;
-    transform: translateY(-.3rem);
+    transform: translateY(-0.3rem);
   }
   &:active {
     background-color: $white;
     color: $red;
-    transform: translateY(-.1rem);
+    transform: translateY(-0.1rem);
   }
 }
 
@@ -412,11 +415,11 @@ li {
 }
 
 .chevron__icon {
-  color: $white
+  color: $white;
 }
 
 .read__panel {
-  width: 0%;
+  width: 90%;
   margin: 0 auto;
   height: 100vh;
   background: $white;
@@ -470,7 +473,7 @@ li {
     background-color: #ccc;
   }
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     display: none;
   }
@@ -527,7 +530,8 @@ footer {
       height: 25rem;
     }
   }
-  .btn-chevron-right, .btn-chevron-left {
+  .btn-chevron-right,
+  .btn-chevron-left {
     top: -25rem;
   }
 }
@@ -556,7 +560,8 @@ footer {
       height: 20rem;
     }
   }
-  .btn-chevron-right, .btn-chevron-left {
+  .btn-chevron-right,
+  .btn-chevron-left {
     top: -23rem;
   }
   .fa-7x {
@@ -576,7 +581,8 @@ footer {
     }
   }
   .character__copy {
-    h2, a {
+    h2,
+    a {
       font-size: 80%;
     }
     p {
@@ -591,7 +597,7 @@ footer {
   }
 }
 
-@media (max-width: 450px)  {
+@media (max-width: 450px) {
   .container {
     max-width: 100%;
   }
@@ -603,7 +609,8 @@ footer {
     }
   }
   .character__copy {
-    h2, a {
+    h2,
+    a {
       font-size: 75%;
     }
     p {
@@ -630,13 +637,12 @@ footer {
   .fa-7x {
     font-size: 3em !important;
   }
-  .btn-chevron-right{
+  .btn-chevron-right {
     top: -2rem;
     right: 11rem;
   }
-  .btn-chevron-left{
+  .btn-chevron-left {
     top: -2rem;
     left: 11rem;
   }
 }
-

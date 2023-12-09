@@ -1,11 +1,19 @@
 import React from 'react'
 
-const Comic = ({comic}) => {
+const Comic = ({ comic, addComic }) => {
+  const comicTitle = comic.title
+  const comicImg = `${comic.thumbnail.path}.${comic.thumbnail.extension}`
   return (
     <li>
-      <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt=""/>
-      <p>{comic.title}</p>
-      <button className="btn__list" aria-label="Add Comic to read list">Add to list</button>
+      <img src={comicImg} alt="" />
+      <p>{comicTitle}</p>
+      <button
+        onClick={() => addComic(comicTitle, comicImg)}
+        className="btn__list"
+        aria-label="Add Comic to read list"
+      >
+        Add to list
+      </button>
     </li>
   )
 }
