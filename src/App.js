@@ -120,7 +120,7 @@ const App = () => {
 
   const resetSearch = () => {
     setCharacterData('')
-    setComicsData('')
+    setComicsData([])
   }
 
   const generateId = () => {
@@ -169,7 +169,7 @@ const App = () => {
         searchCharData={searchCharData(characterDropdowndata)}
         value={value}
       />
-      {loading && <Loader />}
+      {/* {loading && <Loader />} */}
       {characterData ? (
         <SearchResult characterData={characterData} resetSearch={resetSearch} />
       ) : (
