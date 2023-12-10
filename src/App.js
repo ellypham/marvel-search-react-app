@@ -53,37 +53,40 @@ const App = () => {
     fetchComics(characterId)
   }
 
-  const handleSubmit = useCallback(async (e, characterName = null) => {
-    if (e) {
-      e.preventDefault()
-    }
-    setLoading(true)
-    setComicsData([])
-
-    let apiUrl = ''
-
-    if (characterName) {
-      apiUrl = `https://gateway.marvel.com/v1/public/characters?name=${characterName}&apikey=${publickey}`
-    } else {
-      apiUrl = `https://gateway.marvel.com/v1/public/characters?name=${value}&apikey=${publickey}`
-    }
-
-    try {
-      const response = await axios.get(apiUrl)
-      setCharacterData(response.data.data.results)
-      setCharacterId(response.data.data.results[0].id.toString())
-
-      if (response.data.data.results.length > 0) {
-        fetchComics(characterId)
+  const handleSubmit = useCallback(
+    async (e, characterName = null) => {
+      if (e) {
+        e.preventDefault()
       }
-    } catch (error) {
-      console.log('Error fetching data:', error)
-    } finally {
-      setLoading(false)
-    }
+      setLoading(true)
+      setComicsData([])
 
-    setValue('')
-  }, [value, publickey, fetchComics])
+      let apiUrl = ''
+
+      if (characterName) {
+        apiUrl = `https://gateway.marvel.com/v1/public/characters?name=${characterName}&apikey=${publickey}`
+      } else {
+        apiUrl = `https://gateway.marvel.com/v1/public/characters?name=${value}&apikey=${publickey}`
+      }
+
+      try {
+        const response = await axios.get(apiUrl)
+        setCharacterData(response.data.data.results)
+        setCharacterId(response.data.data.results[0].id.toString())
+
+        if (response.data.data.results.length > 0) {
+          fetchComics(characterId)
+        }
+      } catch (error) {
+        console.log('Error fetching data:', error)
+      } finally {
+        setLoading(false)
+      }
+
+      setValue('')
+    },
+    [value, publickey, characterId],
+  )
 
   useEffect(() => {
     const keyDownHandler = (e) => {
