@@ -83,7 +83,7 @@ const App = () => {
     }
 
     setValue('')
-  })
+  }, [value, publickey, fetchComics])
 
   useEffect(() => {
     const keyDownHandler = (e) => {
