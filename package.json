@@ -1,7 +1,6 @@
 {
   "name": "marvel-comic-read-list-app",
   "version": "0.1.0",
-  "homepage": "https://ellypham.github.io/marvel-comic-read-list-app",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
