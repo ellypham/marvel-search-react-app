@@ -9,9 +9,6 @@ import SearchResult from './components/SearchResult'
 import ComicList from './components/ComicsList'
 import ReadList from './components/ReadList'
 import Loader from './components/loader'
-import dotenv from 'dotenv'
-
-dotenv.config()
 
 // Get the input value from the user
 // Use the input value to search for the character from a dropdown list
@@ -20,7 +17,7 @@ dotenv.config()
 // Fetch comic data from the Marvel API using the character id
 
 const App = () => {
-  const publickey = process.env.MARVEL_API_KEY
+  const publickey = 'b225687f4bb5b86654a2184eb87aa18b'
   const [value, setValue] = useState('')
   const [characterData, setCharacterData] = useState('')
   const [comicsData, setComicsData] = useState([])
