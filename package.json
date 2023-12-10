@@ -1,5 +1,6 @@
 {
   "name": "marvel-comic-read-list-app",
+  "homepage": "https://ellypham.github.io/marvel-search-react-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
