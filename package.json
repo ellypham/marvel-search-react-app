@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "homepage": "https://ellypham.github.io/marvel-comic-read-list-app",
+    "homepage": "https://ellypham.github.io/marvel-search-react-app",
     "axios": "^1.6.2",
     "gh-pages": "^6.1.0",
     "react": "^18.2.0",
@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b main -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
