@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-const SearchResult = ({ characterData, resetSearch}) => {
+const SearchResult = ({ characterData, resetSearch }) => {
   // Check if characterData exists and has at least one item
   if (!characterData || characterData.length === 0) {
     // Return some default content or a message when characterData is empty or undefined
@@ -10,11 +10,11 @@ const SearchResult = ({ characterData, resetSearch}) => {
           <p>No character data available</p>
         </div>
       </section>
-    );
+    )
   }
 
   // Access characterData[0] safely with optional chaining
-  const character = characterData[0];
+  const character = characterData[0]
 
   return (
     <section className="search__result">
@@ -27,16 +27,20 @@ const SearchResult = ({ characterData, resetSearch}) => {
             />
           </figure>
           <div className="character__copy">
-            <a href="#" className="back" onClick={() =>resetSearch()}>
+            <button
+              className="btn__back-to-search"
+              href="#"
+              onClick={resetSearch}
+            >
               Back to Search
-            </a>
+            </button>
             <h2>{character?.name}</h2>
             <p>{character?.description}</p>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default SearchResult;
+export default SearchResult

@@ -95,6 +95,7 @@ li {
   display: inline-block;
   width: 5px;
   height: 20px;
+  margin: 5px;
   background-color: $red;
 }
 
@@ -205,7 +206,7 @@ li {
   color: $white;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.6rem;
-  padding-left: 4rem;
+  padding-left: 1.5rem;
 }
 
 ::placeholder {
@@ -230,6 +231,18 @@ li {
   position: absolute;
   top: 4.5rem;
   left: 1.5rem;
+}
+
+.search__button {
+  border: none;
+  background: $red;
+  margin-top: 1.4rem;
+  padding: 1rem;
+  color: $white;
+  font-size: 1.4rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .autocomplete-active {
@@ -331,6 +344,16 @@ li {
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
+}
+
+.btn__back-to-search {
+  border: none;
+  background: none;
+  color: $red;
+  font-size: 1.5rem;
+  text-align: left;
+  padding-bottom: 10px;
+  text-decoration: underline;
 }
 
 .comics {

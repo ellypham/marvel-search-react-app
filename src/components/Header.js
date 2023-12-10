@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Header = ({
-  characters,
+  searchCharData,
   value,
   onChange,
   onSearch,
@@ -31,9 +31,6 @@ const Header = ({
             <div className="search__input">
               <label htmlFor="search">Search for comics by character:</label>
               <div className="search__field_container">
-                <span className="search__icon">
-                  <i className="fas fa-search" aria-hidden="true"></i>
-                </span>
                 <input
                   id="search"
                   className="search__field"
@@ -42,15 +39,9 @@ const Header = ({
                   type="search"
                   onChange={onChange}
                 />
-                <button
-                  className="search__button"
-                  aria-label="Search for comics by character"
-                >
-                  Search
-                </button>
                 <div id="autocomplete__list">
                   <div className="autocomplete__card" data-charname="">
-                    {characters.map((character) => (
+                    {searchCharData.map((character) => (
                       <div key={character} onClick={() => onSearch(character)}>
                         {character}
                       </div>

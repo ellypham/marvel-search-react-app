@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
-import characterSearchdata from './data/characterSearch'
+import characterDropdowndata from './data/characterSearch'
 import featuredCharacterData from './data/featuredCharacters'
 import './App.scss'
 import Header from './components/Header'
@@ -22,13 +22,11 @@ const App = () => {
   const [characterData, setCharacterData] = useState('')
   const [comicsData, setComicsData] = useState([])
   const [characterId, setCharacterId] = useState('')
-  const [selectedCharacter, setSelectedCharacter] = useState({})
   const [readList, setReadList] = useState([])
   const [loading, setLoading] = useState(false)
   const [displayReadList, setDisplayReadList] = useState(false)
 
   const onChange = (event) => {
-    // resetSearch()
     setValue(event.target.value)
   }
 
@@ -51,13 +49,11 @@ const App = () => {
   }
 
   const handleCharacterClick = (characterName) => {
-    setSelectedCharacter(characterName)
-
     handleSubmit(null, characterName)
     fetchComics(characterId)
   }
 
-  const handleSubmit = async (e, characterName = null) => {
+  const handleSubmit = useCallback(async (e, characterName = null) => {
     if (e) {
       e.preventDefault()
     }
@@ -77,8 +73,6 @@ const App = () => {
       setCharacterData(response.data.data.results)
       setCharacterId(response.data.data.results[0].id.toString())
 
-      console.log('fetchComics', response.data.data.results.length)
-
       if (response.data.data.results.length > 0) {
         fetchComics(characterId)
       }
@@ -89,7 +83,22 @@ const App = () => {
     }
 
     setValue('')
-  }
+  })
+
+  useEffect(() => {
+    const keyDownHandler = (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault()
+        handleSubmit()
+      }
+    }
+
+    document.addEventListener('keydown', keyDownHandler)
+
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler)
+    }
+  }, [handleSubmit])
 
   const fetchComics = async (characterId) => {
     setLoading(true)
@@ -138,7 +147,6 @@ const App = () => {
   const toggleComic = (id) => {
     const index = readList.findIndex((item) => item.id === id)
     const readListCopy = [...readList]
-    console.log('i am beling clicke')
 
     if (index !== -1) {
       // eslint-disable-next-line no-unused-expressions
@@ -148,8 +156,6 @@ const App = () => {
     setReadList(readListCopy)
   }
 
-  console.log('readList', readList)
-
   return (
     <>
       <Header
@@ -157,7 +163,7 @@ const App = () => {
         onSearch={onSearch}
         onSubmit={handleSubmit}
         showReadList={showReadList}
-        characters={searchCharData(characterSearchdata)}
+        searchCharData={searchCharData(characterDropdowndata)}
         value={value}
       />
       {loading && <Loader />}
